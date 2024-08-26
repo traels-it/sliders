@@ -16,7 +16,7 @@ module FixSlidersViewPath
       controller_file_path = Object.const_source_location(self.name).first
       return super unless controller_file_path.include?("#{Rails.root}/app/sliders/")
 
-      [controller_path, controller_path.gsub("#{self.name.split("::").first.underscore}/", "")]
+      [ controller_path, controller_path.gsub("#{self.name.split("::").first.underscore}/", "") ]
     end
   end
 end
