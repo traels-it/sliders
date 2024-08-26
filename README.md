@@ -6,6 +6,8 @@ Sliders are mini "app-folders" for grouping related code in your Rails applicati
 Some times you have bundles of code in your app that is related to some specific feature.
 Extracting to a gem is not really an option as the feature is tightly integrated with the rest of the application. So how do you get a good structure of files in you application?
 
+(Yes, I've been inspired by, or envious at,  [Hanami](https://github.com/hanami/hanami) and their [slices](https://guides.hanamirb.org/v2.1/app/slices/) for structuring a Hanami application.)
+
 With `sliders` you get a namespace folder that groups all you files.
 
 Going from:
