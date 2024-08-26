@@ -1,8 +1,6 @@
 ActiveSupport::Reloader.to_prepare do
-  puts ApplicationController.include FixSlidersViewPath
-  Dir.glob("#{Rails.root}/app/sliders/*").each do |slice|
-    Dir.glob("#{slice}/*").each do |path|
-      Rails.autoloaders.main.collapse(path) unless File.file?(path)
-    end
-  end
+  # make controllers aware of sliders and adjust view path on slider controllers
+  ApplicationController.include FixSlidersViewPath
+  # reload sliders code and load list of sliders
+  Sliders.reload_sliders
 end
