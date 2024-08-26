@@ -5,5 +5,6 @@ class NavigationTest < ActionDispatch::IntegrationTest
     get "/dummy_slider/welcome"
 
     assert_response :success
+    assert_select "h1", "Welcome to the Test Slider"
   end
 end
