@@ -1,5 +1,7 @@
 require "sliders/version"
 require "sliders/engine"
+require "rails/generators"
+require "rails_ext/controller_generator"
 
 module Sliders
   # Your code goes here...
