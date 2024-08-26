@@ -5,7 +5,7 @@ Gem::Specification.new do |spec|
   spec.version     = Sliders::VERSION
   spec.authors     = [ "Simon Træls Ravn" ]
   spec.email       = [ "traels@traels.it" ]
-  spec.homepage    = "https://traels.it"
+  spec.homepage    = "https://github.com/traels-it/sliders"
   spec.summary     = "Create app'ish folders to group your features."
   spec.description = "Create app'ish folders to group your features."
   spec.license     = "MIT"
