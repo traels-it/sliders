@@ -1,0 +1,9 @@
+Description:
+    Creates basic slider folder structure
+
+Example:
+    bin/rails generate slider Thing
+
+    This will create:
+        app/sliders/thing
+        test/sliders/thing
