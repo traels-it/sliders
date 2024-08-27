@@ -70,6 +70,8 @@ This creates the `app/sliders/` folder and a module and folder for your feature.
 
 Now you can just use regular generators to create thing in `MyFeature` namespace and *sliders* will create the files in your slider folder.
 
+The folder *sliders* is not used for namespace, just like the folders in your slider is not used. So a file in `app/sliders/my_feature/models/admin.rb` will be for the constant `MyFeature::Admin`.
+
 Generators that will now create files in slider folder:
 - controllers
 - scaffold
