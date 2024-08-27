@@ -6,6 +6,7 @@ require "rails_ext/scaffold_controller_generator"
 require "rails_ext/helper_generator"
 require "rails_ext/job_generator"
 require "rails_ext/mailer_generator"
+require "rails_ext/active_record_model_generator"
 
 module Sliders
   # Your code goes here...

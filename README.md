@@ -46,7 +46,7 @@ app/
          └─ important_feature_task.rb
 ```
 
-We'll do our best to group you files in you test folder as well.
+Future plan is to group all your sliders tests in a `test/sliders/my_feature` folder as well.
 
 ## Installation
 Add this line to your application's Gemfile:
@@ -70,15 +70,35 @@ This creates the `app/sliders/` folder and a module and folder for your feature.
 
 Now you can just use regular generators to create thing in `MyFeature` namespace and *sliders* will create the files in your slider folder.
 
+Generators that will now create files in slider folder:
+- controllers
+- scaffold
+- helpers
+- mailers
+- jobs
+- active record model
+
 ## Contributing
 Feel free to open PR with fixes for generators for that creates files outside of sliders folder.
 
 Known generators that will not do what you expect:
 - view
+  - controller
+  - mailer
+  - scaffold
+- action cable
+- action mailbox
+- tests
+  - controller
+  - model
+  - scaffold
+  - mailer
+  - job
+  - integration
+  - helper
+  - system?
 - fixtures (part of model tests)
-- models
-- components
-- tests (controller, mailer, scaffold)
+- components?
 
 Other things we need to fix:
 - loading fixtures from slider fixture foldeer
