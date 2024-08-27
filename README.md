@@ -75,9 +75,13 @@ Feel free to open PR with fixes for generators for that creates files outside of
 
 Known generators that will not do what you expect:
 - view
-- fixtures
+- fixtures (part of model tests)
 - models
 - components
+- tests (controller, mailer, scaffold)
+
+Other things we need to fix:
+- loading fixtures from slider fixture foldeer
 
 ## License
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
