@@ -77,7 +77,6 @@ Known generators that will not do what you expect:
 - view
 - fixtures
 - models
-- jobs
 - components
 
 ## License
