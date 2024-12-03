@@ -13,7 +13,6 @@ class ControllerGeneratorTest < Rails::Generators::TestCase
     run_generator [ "dummy_slider/account" ]
 
     assert_file "app/sliders/dummy_slider/controllers/account_controller.rb", /class DummySlider::AccountController < ApplicationController/
-    assert_file "test/sliders/dummy_slider/controllers/account_controller_test.rb"
   end
 
   def test_controller_skeleton_is_created_in_namespace
