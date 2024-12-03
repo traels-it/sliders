@@ -11,9 +11,6 @@ blocks:
         commands:
           - checkout
           - sem-version ruby 3.3.4
-          - cache restore
-          - bundle install --deployment --path vendor/bundle
-          - cache store
       env_vars:
         - name: RAILS_ENV
           value: test
