@@ -1,0 +1,30 @@
+version: v1.0
+name: build
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu2004
+blocks:
+  - name: Test
+    task:
+      prologue:
+        commands:
+          - checkout
+          - sem-version ruby 3.3.4
+          - cache restore
+          - bundle install --deployment --path vendor/bundle
+          - cache store
+      env_vars:
+        - name: RAILS_ENV
+          value: test
+      jobs:
+        - name: Rails7.2
+          commands:
+            - bundle add rails -v "~> 7.2.0"
+            - bundle update
+            - bundle exec rails test
+        - name: Rails8.0
+          commands:
+            - bundle add rails -v "~> 8.0.0"
+            - bundle update
+            - bundle exec rails test
