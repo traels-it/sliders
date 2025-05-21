@@ -49,4 +49,11 @@ class Sliders::ControllerGeneratorTest < Rails::Generators::TestCase
 
     assert_file "test/sliders/dummy_slider/controllers/account_controller_test.rb"
   end
+
+  def test_creates_views
+    run_generator
+
+    assert_file "app/sliders/dummy_slider/views/account/foo.html.erb"
+    assert_file "app/sliders/dummy_slider/views/account/bar.html.erb"
+  end
 end
