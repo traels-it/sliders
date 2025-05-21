@@ -9,13 +9,13 @@ class ModelGeneratorTest < Rails::Generators::TestCase
   arguments %w[admin]
 
   def test_model_is_created_in_slider_folder
-    run_generator [ "dummy_slider/admin" ]
+    run_generator ["dummy_slider/admin"]
 
     assert_file "app/sliders/dummy_slider/models/admin.rb", /class DummySlider::Admin/
   end
 
   def test_model_and_module_created_in_slider_folder
-    run_generator [ "dummy_slider/my_space/admin" ]
+    run_generator ["dummy_slider/my_space/admin"]
 
     assert_file "app/sliders/dummy_slider/models/my_space/admin.rb", /class DummySlider::MySpace::Admin/
     assert_file "app/sliders/dummy_slider/models/my_space.rb", /module DummySlider::MySpace/

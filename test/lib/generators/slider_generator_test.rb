@@ -7,7 +7,7 @@ class SliderGeneratorTest < Rails::Generators::TestCase
   setup :prepare_destination
 
   def test_slider_module_and_folder_created
-    run_generator [ "my_feature" ]
+    run_generator ["my_feature"]
 
     assert_file "app/sliders/my_feature.rb", /module MyFeature/
     assert_file "app/sliders/my_feature/.keep"

@@ -12,7 +12,7 @@ module SlidersActiveRecordModelGenerator
     return super unless (class_path & Sliders.sliders).any?
 
     return if regular_class_path.empty? || regular_class_path.one?
-    template "module.rb", File.join("app/sliders/", class_path[0], "models", "#{class_path[1..].join('/')}.rb") if behavior == :invoke
+    template "module.rb", File.join("app/sliders/", class_path[0], "models", "#{class_path[1..].join("/")}.rb") if behavior == :invoke
   end
 end
 ActiveRecord::Generators::ModelGenerator.prepend SlidersActiveRecordModelGenerator

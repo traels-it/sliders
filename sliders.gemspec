@@ -1,14 +1,14 @@
 require_relative "lib/sliders/version"
 
 Gem::Specification.new do |spec|
-  spec.name        = "sliders"
-  spec.version     = Sliders::VERSION
-  spec.authors     = [ "Simon Træls Ravn" ]
-  spec.email       = [ "traels@traels.it" ]
-  spec.homepage    = "https://github.com/traels-it/sliders"
-  spec.summary     = "Create app'ish folders to group your features."
+  spec.name = "sliders"
+  spec.version = Sliders::VERSION
+  spec.authors = ["Simon Træls Ravn"]
+  spec.email = ["traels@traels.it"]
+  spec.homepage = "https://github.com/traels-it/sliders"
+  spec.summary = "Create app'ish folders to group your features."
   spec.description = "Create app'ish folders to group your features."
-  spec.license     = "MIT"
+  spec.license = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the "allowed_push_host"
   # to allow pushing to a single host or delete this section to allow pushing to any host.

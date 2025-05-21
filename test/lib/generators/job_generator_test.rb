@@ -9,7 +9,7 @@ class JobGeneratorTest < Rails::Generators::TestCase
   arguments %w[admin]
 
   def test_helper_is_created_in_slider_folder
-    run_generator [ "dummy_slider/admin" ]
+    run_generator ["dummy_slider/admin"]
 
     assert_file "app/sliders/dummy_slider/jobs/admin_job.rb", /class DummySlider::AdminJob/
   end

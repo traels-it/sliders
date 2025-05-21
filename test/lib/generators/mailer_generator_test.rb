@@ -9,7 +9,7 @@ class MailerGeneratorTest < Rails::Generators::TestCase
   arguments %w[admin lars]
 
   def test_helper_is_created_in_slider_folder
-    run_generator [ "dummy_slider/admin", "lars" ]
+    run_generator ["dummy_slider/admin", "lars"]
 
     assert_file "app/sliders/dummy_slider/mailers/admin_mailer.rb", /class DummySlider::AdminMailer < ApplicationMailer/
   end

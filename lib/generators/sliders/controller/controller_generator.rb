@@ -5,12 +5,11 @@ require "generators/sliders/slider_name"
 
 class Sliders::ControllerGenerator < Rails::Generators::ControllerGenerator
   prepend Sliders::SliderName
-  
+
   hook_for :template_engine, :helper, in: :sliders do |generator|
-    invoke generator, [ remove_possible_suffix(name), actions ]
+    invoke generator, [remove_possible_suffix(name), actions]
   end
   remove_hook_for :test_framework
-
 
   def self.source_root
     Rails::Generators::ControllerGenerator.source_root

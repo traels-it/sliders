@@ -3,7 +3,7 @@ require "generators/sliders/slider_name"
 
 class Sliders::HelperGenerator < Rails::Generators::NamedBase
   prepend Sliders::SliderName
-  
+
   def self.source_root
     Rails::Generators::HelperGenerator.source_root
   end
