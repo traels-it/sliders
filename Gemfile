@@ -9,5 +9,4 @@ gem "sqlite3"
 
 gem "sprockets-rails"
 
-# Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
-gem "rubocop-rails-omakase", require: false
+gem "standard", "~> 1.50.0"
