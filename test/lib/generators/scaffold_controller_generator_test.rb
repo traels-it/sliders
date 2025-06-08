@@ -1,12 +1,7 @@
 require "test_helper"
-require "rails/generators/rails/scaffold_controller/scaffold_controller_generator"
 
-class ScaffoldControllerGeneratorTest < Rails::Generators::TestCase
-  tests Rails::Generators::ScaffoldControllerGenerator
-  destination Rails.root.join("tmp/generators")
-  setup :prepare_destination
-
-  arguments %w[account foo bar]
+class ScaffoldControllerGeneratorTest < Sliders::TestCase
+  tests "scaffold_controller"
 
   def test_controller_is_created_in_slider_folder
     run_generator [ "dummy_slider/account" ]
