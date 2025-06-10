@@ -72,38 +72,14 @@ Now you can just use regular generators to create thing in `MyFeature` namespace
 
 The folder *sliders* is not used for namespace, just like the folders in your slider is not used. So a file in `app/sliders/my_feature/models/admin.rb` will be for the constant `MyFeature::Admin`.
 
-Generators that will now create files in slider folder:
-- controllers
-- scaffold
-- helpers
-- mailers
-- jobs
-- active record model
-
 ## Contributing
-Feel free to open PR with fixes for generators for that creates files outside of sliders folder.
+PR with fixes or improvements are most welcome.
 
-Known generators that will not do what you expect:
-- view
-  - controller
-  - mailer
-  - scaffold
-- action cable
-- action mailbox
-- tests
-  - controller
-  - model
-  - scaffold
-  - mailer
-  - job
-  - integration
-  - helper
-  - system?
-- fixtures (part of model tests)
-- components?
+We have tested *sliders* with most of Rails built-in generators, only a few of them have actual test cases.
+PR with tests for more generators are very welcome - also generators for often used gems like eg. ViewComponent or Rspec.
 
-Other things we need to fix:
-- loading fixtures from slider fixture foldeer
+**Known bugs**
+- fixtures are generated in *sliders* folder, so they will not work
 
 ## License
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
