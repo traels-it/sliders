@@ -8,6 +8,8 @@ module SlidersCopyInvoke
     end
   end
 end
+Rails::Generators.include SlidersCopyInvoke
+
 module SlidersInvoke
   extend ActiveSupport::Concern
 
@@ -26,31 +28,31 @@ module SlidersInvoke
     private
 
     def sliders_cleanup
-      class_variable_get(:@@generated_files).each do |source_file|
-        slider = Sliders.sliders.find { |slider| source_file.include? slider }
-        next unless slider
-
-        destination_file = file_in_slider_path(source_file, slider)
-        next unless destination_file
-
+      loop_files(class_variable_get(:@@generated_files)) do |source_file, destination_file|
         File.unlink destination_file
       end
     end
 
     def sliders_move
-      class_variable_get(:@@sliders_generated_files).each do |source_file|
-        slider = Sliders.sliders.find { |slider| source_file.include? slider }
-        next unless slider
-
-        destination_file = file_in_slider_path(source_file, slider)
-        next unless destination_file
-
+      loop_files(class_variable_get(:@@sliders_generated_files)) do |source_file, destination_file|
         source_file = Rails.root.join(source_file)
         FileUtils.mkdir_p(File.dirname(destination_file))
         FileUtils.mv(source_file, destination_file)
       end
 
       class_variable_set(:@@sliders_generated_files, [])
+    end
+
+    def loop_files(source_files)
+      source_files.each do |source_file|
+        slider = Sliders.sliders.find { |slider| source_file.include? slider }
+        next unless slider
+
+        destination_file = file_in_slider_path(source_file, slider)
+        next unless destination_file
+
+        yield source_file, destination_file
+      end
     end
 
     def file_in_slider_path(source_file, slider)
@@ -86,5 +88,4 @@ module SlidersInvoke
     end
   end
 end
-Rails::Generators.include SlidersCopyInvoke
 Rails::Generators.prepend SlidersInvoke
