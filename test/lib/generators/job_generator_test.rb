@@ -1,12 +1,7 @@
 require "test_helper"
-require "rails/generators/job/job_generator"
 
-class JobGeneratorTest < Rails::Generators::TestCase
-  tests Rails::Generators::JobGenerator
-  destination Rails.root.join("tmp/generators")
-  setup :prepare_destination
-
-  arguments %w[admin]
+class JobGeneratorTest < Sliders::TestCase
+  tests "job"
 
   def test_helper_is_created_in_slider_folder
     run_generator [ "dummy_slider/admin" ]
@@ -15,7 +10,7 @@ class JobGeneratorTest < Rails::Generators::TestCase
   end
 
   def test_helper_is_created_in_original_folder_if_not_slider_namespace
-    run_generator
+    run_generator [ "admin" ]
 
     assert_file "app/jobs/admin_job.rb", /class AdminJob/
   end

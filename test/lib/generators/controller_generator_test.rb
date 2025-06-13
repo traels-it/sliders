@@ -1,15 +1,10 @@
 require "test_helper"
-require "rails/generators/rails/controller/controller_generator"
 
-class ControllerGeneratorTest < Rails::Generators::TestCase
-  tests Rails::Generators::ControllerGenerator
-  destination Rails.root.join("tmp/generators")
-  setup :prepare_destination
-
-  arguments %w[account foo bar]
+class ControllerGeneratorTest < Sliders::TestCase
+  tests "controller"
 
   def test_controller_skeleton_is_created
-    run_generator [ "dummy_slider/account" ]
+    run_generator %w[dummy_slider/account foo bar]
 
     assert_file "app/sliders/dummy_slider/controllers/account_controller.rb", /class DummySlider::AccountController < ApplicationController/
   end
@@ -22,6 +17,7 @@ class ControllerGeneratorTest < Rails::Generators::TestCase
 
   def test_controller_is_created_in_original_folder_if_not_slider_namespace
     run_generator [ "account" ]
+
     assert_file "app/controllers/account_controller.rb", /class AccountController < ApplicationController/
   end
 end

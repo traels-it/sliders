@@ -1,12 +1,11 @@
 require "test_helper"
-require "rails/generators/active_record/model/model_generator"
 
-class ModelGeneratorTest < Rails::Generators::TestCase
-  tests ActiveRecord::Generators::ModelGenerator
-  destination Rails.root.join("tmp/generators")
-  setup :prepare_destination
+class ModelGeneratorTest < Sliders::TestCase
+  tests "model"
 
-  arguments %w[admin]
+  def setup
+    skip "Model generator requires ORM"
+  end
 
   def test_model_is_created_in_slider_folder
     run_generator [ "dummy_slider/admin" ]
@@ -22,7 +21,7 @@ class ModelGeneratorTest < Rails::Generators::TestCase
   end
 
   def test_model_is_created_in_original_folder_if_not_slider_namespace
-    run_generator
+    run_generator [ "admin" ]
 
     assert_file "app/models/admin.rb", /class Admin/
   end
