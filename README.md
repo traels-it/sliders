@@ -72,6 +72,9 @@ Now you can just use regular generators to create thing in `MyFeature` namespace
 
 The folder *sliders* is not used for namespace, just like the folders in your slider is not used. So a file in `app/sliders/my_feature/models/admin.rb` will be for the constant `MyFeature::Admin`.
 
+### Fixtures
+Load fixtures from slides by adding `Sliders.add_fixtures` before `module ActiveSupport` in `test_helper.rb`
+
 ## Contributing
 PR with fixes or improvements are most welcome.
 

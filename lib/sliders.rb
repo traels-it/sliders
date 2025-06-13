@@ -3,8 +3,6 @@ require "sliders/engine"
 require "rails/generators"
 
 module Sliders
-  # Your code goes here...
-
   def self.sliders
     @sliders ||= []
   end
@@ -18,6 +16,15 @@ module Sliders
       Dir.glob("#{slice}/*").each do |path|
         Rails.autoloaders.main.collapse(path) unless File.file?(path)
       end
+    end
+  end
+
+  def self.add_fixtures
+    sliders.each do |slider|
+      slider_path = Rails.root.join("test", "sliders", slider, "fixtures")
+      next unless Dir.exist?(slider_path)
+
+      ActiveSupport::TestCase.fixture_paths << slider_path
     end
   end
 end
