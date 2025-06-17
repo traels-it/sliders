@@ -25,3 +25,8 @@ blocks:
             - bundle add rails -v "~> 8.0.0"
             - bundle update
             - bundle exec rails test
+        - name: Rails8.1alpha
+          commands:
+            - bundle add rails -v "8.1.0.alpha" --git=https://github.com/rails/rails
+            - bundle update
+            - bundle exec rails test
