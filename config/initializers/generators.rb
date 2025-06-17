@@ -29,7 +29,7 @@ module SlidersInvoke
 
     def sliders_cleanup
       loop_files(class_variable_get(:@@generated_files)) do |source_file, destination_file|
-        File.unlink destination_file
+        File.unlink destination_file if File.exist?(destination_file)
       end
     end
 
@@ -59,17 +59,25 @@ module SlidersInvoke
       path_parts = source_file.split("/")
       return unless path_parts.include?(slider) || path_parts.include?("#{slider}.rb")
       return unless path_parts.include?("app") || path_parts.include?("test")
+      return if path_parts.include?("sliders") && path_parts.include?("#{slider}.rb")
+
+      if path_parts.include?("#{slider}.rb")
+        # creating a file named like the slider should go to sliders folder
+        # overwriting our empty slider namespace file
+        return Rails.root.join("app", "sliders", path_parts.last)
+      end
 
       # add sliders after app or test
       path_parts.insert(path_parts.index("app") + 1, "sliders") if path_parts.include?("app")
       path_parts.insert(path_parts.index("test") + 1, "sliders") if path_parts.include?("test")
 
-      # move slider namespace up or add if file is named like #{slider}.rb
-      if path_parts.include?(slider)
-        slider_namespace_index = path_parts.index(slider)
-        path_parts[slider_namespace_index], path_parts[slider_namespace_index - 1] = path_parts[slider_namespace_index - 1], path_parts[slider_namespace_index]
-      else
-        path_parts.insert(path_parts.index("sliders") + 1, slider)
+      # move slider namespace up or
+      slider_namespace_index = path_parts.index(slider)
+      path_parts[slider_namespace_index], path_parts[slider_namespace_index - 1] = path_parts[slider_namespace_index - 1], path_parts[slider_namespace_index]
+
+      # add slider name to filename if fixture
+      if path_parts.include?("fixtures") && !path_parts.last.include?("#{slider}_")
+        path_parts.insert(-2, slider)
       end
 
       Rails.root.join(path_parts.join("/"))
