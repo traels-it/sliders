@@ -81,8 +81,5 @@ PR with fixes or improvements are most welcome.
 We have tested *sliders* with most of Rails built-in generators, only a few of them have actual test cases.
 PR with tests for more generators are very welcome - also generators for often used gems like eg. ViewComponent or Rspec.
 
-**Known bugs**
-- fixtures are generated in *sliders* folder, so they will not work
-
 ## License
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
